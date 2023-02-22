@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Silly Pad</h1>
-    <div>
-        <button>Black</button>
-        <button>RGB</button>
-        <button>Reset</button>
+    <div class="bod">
+        <h1>Silly Pad</h1>
+    <div class="buttons">
+       
+        <button onclick="whatColor('Black')">Black</button>
+        <button onclick="whatColor('randomColor')">Random</button>
+        <button onclick="whatColor('White')">Erasor</button>
+        <button onclick="reset()">Reset</button>
         <input type="range" value="16" min="10" max="100" onchange="changesSize(this.value)">
     </div>
     <div class="container"></div>
+    </div>
+    
 
     <script src="app.js"></script>
 </body>

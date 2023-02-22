@@ -8,9 +8,7 @@ function populateContainer(num){
     let sum = num * num;
     for (let i = 0; i < sum; i++){  
         let grid = document.createElement("div")
-        grid.addEventListener("mouseover", () => { 
-            grid.style.backgroundColor = "black";
-        })
+        grid.addEventListener("mouseover", changesColor)
         grid.style.backgroundColor = "white"; 
         grid.style.border = "1px solid gray"
         container.insertAdjacentElement("beforeend",grid);
@@ -24,4 +22,25 @@ function changesSize(input){
     }
 }
 
-populateContainer(10);
+let color = "black";
+
+function changesColor(){
+    if (color === "randomColor"){
+        this.style.backgroundColor = `hsl(${(Math.random()*360)},100%,50%)`;        
+    } else{
+        this.style.backgroundColor = color;
+    }
+}
+
+function whatColor(choice){
+    color = choice;
+}
+
+function reset(){
+    let container = document.querySelector(".container");
+    let sizes = container.querySelectorAll("div");
+    sizes.forEach((div) => div.style.backgroundColor = "white");
+}
+
+
+populateContainer(10)
